@@ -3,79 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Font2base64</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
 
         .indexbg {
-        background: #e4e9f7;
+        background: linear-gradient(#dfe2ff, #f2f3fb) ;
         }
 
         .container {
-            display: flex;
-            align-items: baseline;
-            padding-top: 50px;
+            display:flex;
+            align-items: center;
             justify-content: center;
             min-height: 90vh;
         }
 
         .box {
-            background: #fdfdfd;
-            width: 60%;
+            background: #f2f3fb;
+            border: 1px solid #9a9adf;
+            width: 50%;
             display: flex;
             flex-direction: column;
             padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px 0 rgba(148, 151, 192, 0.1),
-            0 32px 64px -48px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            position: relative;
         }
 
         #result {
             width: 100%;
+            height: 500px;
             overflow-wrap: break-word;
             margin-top: 40px;
             font-family: poppins;
             font-size: 6pt;
         }
 
-        .custom-file-input {
-        color: transparent;
+        .input[type="file"]::file-selector-button {
+            width: fit-content;
+            color: #8781d3;
+            font-family: poppins;
+            border-radius: 8px;
+            padding: 0 16px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #f2f3fb;
+            border: 1px solid #8781d3;
+            margin-right: 16px;
+            transition: background-color 200ms;
         }
-        .custom-file-input::-webkit-file-upload-button {
-        visibility: hidden;
+
+        .input[type="file"]::file-selector-button:hover {
+            color: #6557ab;
+            border: 1px solid #6557ab;
         }
-        .custom-file-input::before {
-        content: 'Select font';
-        color: black;
-        display: inline-block;
-        background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
-        border: 1px solid #999;
-        border-radius: 3px;
-        padding: 5px 8px;
-        outline: none;
-        white-space: nowrap;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 10pt;
+
+        .input[type="file"]::file-selector-button:active {
+            color: #53488b;
+            border: 1px solid #53488b;
+            background-color: #d3d6f2;
         }
-        .custom-file-input:hover::before {
-        border-color: black;
+
+        .input[type="file"]::file-selector-button::before {
+            content: none; /* Hides the default "no files selected" text */
         }
-        .custom-file-input:active {
-        outline: 0;
+
+        button {
+            width: fit-content;
+            color: #8781d3;
+            font-family: poppins;
+            border-radius: 8px;
+            padding: 0 16px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #f2f3fb;
+            border: 1px solid #8781d3;
+            margin-right: 16px;
+            transition: background-color 200ms;
         }
-        .custom-file-input:active::before {
-        background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+
+        button:hover {
+            color: #6557ab;
+            border: 1px solid #6557ab;
+        }
+
+        button:active {
+            color: #53488b;
+            border: 1px solid #53488b;
+            background-color: #d3d6f2;
+        }
+
+        textarea {
+            background-color: #f9fafe;
+            border-color: #9a9adf;
+            resize: vertical;
+        }
+
+        h1 {
+            font-family: poppins;
+            color: #383863;
+            line-height: 20px;
+        } 
+
+        p {
+            font-family: poppins;
+            color: #676187 ;
+        } 
+
+
+        .footertext {
+            font-family: poppins;
+            font-size: 12pt;
+            font-weight: 300;
+            color: #9a9adf ;
+
+        }  
+
+        .link{
+            color: #9a9adf ;
+            cursor: pointer;
         }
 
     </style>
 </head>
 <body class="indexbg">
     <div class="container">
-
-        <div class="box">
-            <input class="custom-file-input" type="file" onchange="base64convert(this.files)">
-             <div id="result"></div>
+        <center>
+        <div style="width: 40%; margin-bottom: 30px;">
+            <h1>Font to base64 converter</h1>
+            <p>Easily convert your yout font files into Base64 format with this tool. Use Base64 encoding to embed fonts directly into your CSS or HTML files. Try it now!</p>
+            
         </div>
+        <div class="box">
+            <input class="input" type="file" onchange="base64convert(this.files)">
+            <button style="position: absolute; top: 25px; right: 3px;" class="button">Copy</button>
+             <textarea id="result"></textarea>
+        </div>
+    </center>
 
     </div>
     
@@ -89,9 +152,27 @@
     };
     reader.readAsDataURL(files[0]);
     }
+
+    document.querySelector("button").onclick = function(){
+    var textarea = document.querySelector("textarea");
+    textarea.select();
+    document.execCommand('copy');
+    
+    if (!textarea.value) {
+        alert("Select a font to convert 🙈");
+    } else {
+        alert("Base64 copied 🌟");
+    }
+    }
+
     </script>
     
 </body>
+<footer style="margin: 50px;">
+    <center>
+    <p class="footertext">Made by <a class="link" href="https://github.com/julieatpeace">Julieatpeace</a></p>
+    </center>
+</footer>
 </html>
 
 
