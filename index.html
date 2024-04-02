@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Font2base64</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+
     <style>
 
         .indexbg {
@@ -19,17 +19,17 @@
             align-items: center;
             justify-content: center;
             min-height: 90vh;
+            flex-wrap: wrap;
         }
 
         .box {
             background: #f2f3fb;
             border: 1px solid #9a9adf;
-            width: 50%;
-            display: flex;
-            flex-direction: column;
+            width: 600px;
             padding: 25px;
             border-radius: 15px;
             position: relative;
+            margin: 20px;
         }
 
         #result {
@@ -103,13 +103,17 @@
 
         h1 {
             font-family: poppins;
+            font-weight: 700;
+            font-size: 40pt;
             color: #383863;
-            line-height: 20px;
+            line-height: 55px;
         } 
 
         p {
             font-family: poppins;
+            font-weight: 300;
             color: #676187 ;
+            font-size: 15pt;
         } 
 
 
@@ -130,18 +134,18 @@
 </head>
 <body class="indexbg">
     <div class="container">
-        <center>
-        <div style="width: 40%; margin-bottom: 30px;">
+        
+        <div style="width: 500px; margin: 30px; float: left;">
             <h1>Font to base64 converter</h1>
-            <p>Easily convert your yout font files into Base64 format with this tool. Use Base64 encoding to embed fonts directly into your CSS or HTML files. Try it now!</p>
+            <p>Easily convert your yout font files into Base64 format with this tool. Use Base64 encoding to embed fonts directly into your CSS or HTML files. <span style="font-weight: 600;"> Try it now!</span></p>
             
         </div>
         <div class="box">
             <input class="input" type="file" onchange="base64convert(this.files)">
             <button style="position: absolute; top: 25px; right: 3px;" class="button">Copy</button>
-             <textarea id="result"></textarea>
+            <textarea id="result"></textarea>
         </div>
-    </center>
+    
 
     </div>
     
@@ -173,7 +177,7 @@
 </body>
 <footer style="margin: 50px;">
     <center>
-    <p class="footertext">Built by <a class="link" href="https://github.com/julieatpeace">Julieatpeace</a> with HTML, CSS & JavaScript</p>  
+    <p class="footertext">Built by <a class="link" href="https://github.com/julieatpeace">Julieatpeace</a> with HTML, CSS & JavaScript</p> 
     </center>
 </footer>
 </html>
