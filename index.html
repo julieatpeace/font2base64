@@ -111,7 +111,7 @@
         } 
 
         h1 .higlight {
-            background: linear-gradient(45deg, #6957c4 , #ba7be7);
+            background: linear-gradient(30deg, #575ec4 , #7bc7e7);
             background-clip: text;
             -webkit-text-fill-color: transparent;
         } 
@@ -137,9 +137,33 @@
             cursor: pointer;
         }
 
+        .bgcircle
+            {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            }
+
+        .circle {
+            width: 400px;
+            height: 400px;
+            border-radius: 100%;
+            background: linear-gradient(#b7f3ff , rgb(182, 193, 255) );
+            filter: blur(100px); 
+            position: absolute;
+            top: 20%;
+            left: -5%;
+            z-index: -1;
+
+        }
+
     </style>
 </head>
 <body class="indexbg">
+    <div class="bgcircle"> 
+        <div class="circle"></div>
+    </div>
+
     <div class="container">
         
         <div style="width: 500px; margin: 30px; float: left;">
@@ -159,12 +183,12 @@
 
     <script> 
     function base64convert(files) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-        const base64String = e.target.result;
-        document.getElementById('result').textContent = base64String;
+    const convert = new FileReader();
+    convert.onload = (e) => {
+        const base64 = e.target.result;
+        document.getElementById('result').textContent = base64;
     };
-    reader.readAsDataURL(files[0]);
+    convert.readAsDataURL(files[0]);
     }
 
     document.querySelector("button").onclick = function(){
