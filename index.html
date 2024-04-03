@@ -137,13 +137,6 @@
             cursor: pointer;
         }
 
-        .bgcircle
-            {
-            display:flex;
-            align-items: center;
-            justify-content: center;
-            }
-
         .circle {
             width: 400px;
             height: 400px;
@@ -151,22 +144,17 @@
             background: linear-gradient(#b7f3ff , rgb(182, 193, 255) );
             filter: blur(100px); 
             position: absolute;
-            top: 20%;
-            left: -5%;
             z-index: -1;
-
         }
 
     </style>
 </head>
 <body class="indexbg">
-    <div class="bgcircle"> 
-        <div class="circle"></div>
-    </div>
 
     <div class="container">
         
         <div style="width: 500px; margin: 30px; float: left;">
+            <div class="circle"></div>
             <h1>Font to <span class="higlight">base64</span> converter</h1>
             <p>Easily convert your yout font files into Base64 format with this tool. Use encoding to embed fonts directly into your CSS or HTML files. <span style="font-weight: 600;"> Try it now!</span></p>
             
